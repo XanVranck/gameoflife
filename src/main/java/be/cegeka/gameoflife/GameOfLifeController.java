@@ -19,7 +19,7 @@ public class GameOfLifeController {
     @RequestMapping(value = "/world", method = POST)
     @ResponseBody
     public List<List<Boolean>> getWorld(@RequestBody List<List<Boolean>> currentWorld){
-        //logger.info(currentWorld);
+//        logger.info(currentWorld);
         return currentWorld;
     }
 

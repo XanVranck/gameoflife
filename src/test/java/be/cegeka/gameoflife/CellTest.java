@@ -2,28 +2,30 @@ package be.cegeka.gameoflife;
 
 import org.junit.Test;
 
-/**
- * Created by xanv on 17/06/2017.
- */
+import static org.assertj.core.api.Assertions.assertThat;
+
+
 public class CellTest {
-    @Test
-    public void setIsAlive() throws Exception {
-
-    }
-
+    private Cell cell = new Cell(1, 2);
     @Test
     public void isAlive() throws Exception {
-
+        assertThat(cell.isAlive()).isEqualTo(false);
     }
 
     @Test
     public void getRow() throws Exception {
-
+        assertThat(cell.getRow()).isEqualTo(1);
     }
 
     @Test
     public void getCol() throws Exception {
+        assertThat(cell.getCol()).isEqualTo(2);
+    }
 
+    @Test
+    public void setIsAlive() throws Exception {
+        cell.setIsAlive(true);
+        assertThat(cell.isAlive()).isEqualTo(true);
     }
 
 }

@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 public class CellTest {
-    private Cell cell = new Cell(1, 2);
+    private Cell cell = new Cell(false, 1, 2);
     @Test
     public void isAlive() throws Exception {
         assertThat(cell.isAlive()).isEqualTo(false);

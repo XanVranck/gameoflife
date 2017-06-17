@@ -1,8 +1,16 @@
 package be.cegeka.gameoflife;
 
-/**
- * Created by xanv on 17/06/2017.
- */
-public class World {
+import java.util.ArrayList;
+import java.util.List;
 
+public class World {
+    private List<Cell> grid = new ArrayList<>();
+
+    public World(List<Cell> grid) {
+        this.grid = grid;
+    }
+
+    public List<Cell> getGrid() {
+        return grid;
+    }
 }

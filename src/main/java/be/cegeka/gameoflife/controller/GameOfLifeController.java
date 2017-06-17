@@ -1,4 +1,4 @@
-package be.cegeka.gameoflife;
+package be.cegeka.gameoflife.controller;
 
 import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,7 +19,7 @@ public class GameOfLifeController {
     @RequestMapping(value = "/world", method = POST)
     @ResponseBody
     public List<List<Boolean>> getWorld(@RequestBody List<List<Boolean>> currentWorld){
-//        logger.info(currentWorld);
+        logger.info(currentWorld);
         return currentWorld;
     }
 

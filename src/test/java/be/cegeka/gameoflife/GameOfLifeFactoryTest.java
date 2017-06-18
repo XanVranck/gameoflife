@@ -15,8 +15,12 @@ public class GameOfLifeFactoryTest {
     private List<Boolean> listOfBooleans1 = new ArrayList<>();
     private List<Boolean> listOfBooleans2 = new ArrayList<>();
     private List<Boolean> listOfBooleans3 = new ArrayList<>();
+    private List<Boolean> newListOfBooleans1 = new ArrayList<>();
+    private List<Boolean> newListOfBooleans2 = new ArrayList<>();
+    private List<Boolean> newListOfBooleans3 = new ArrayList<>();
 
     private List<List<Boolean>> booleanWorld = new ArrayList<>();
+    private List<List<Boolean>> newBooleanWorld = new ArrayList<>();
 
     private List<Cell> listOfCells = new ArrayList<>();
     private List<Cell> newListOfCells = new ArrayList<>();
@@ -36,9 +40,23 @@ public class GameOfLifeFactoryTest {
         listOfBooleans3.add(true);
         listOfBooleans3.add(false);
 
+        newListOfBooleans1.add(false);
+        newListOfBooleans1.add(false);
+        newListOfBooleans1.add(false);
+        newListOfBooleans2.add(false);
+        newListOfBooleans2.add(true);
+        newListOfBooleans2.add(false);
+        newListOfBooleans3.add(false);
+        newListOfBooleans3.add(true);
+        newListOfBooleans3.add(false);
+
         booleanWorld.add(listOfBooleans1);
         booleanWorld.add(listOfBooleans2);
         booleanWorld.add(listOfBooleans3);
+
+        newBooleanWorld.add(newListOfBooleans1);
+        newBooleanWorld.add(newListOfBooleans2);
+        newBooleanWorld.add(newListOfBooleans3);
 
         Cell cellRow0Col0 = new Cell(false, 0 , 0);
         Cell cellRow0Col1 = new Cell(false, 0 , 1);
@@ -93,5 +111,10 @@ public class GameOfLifeFactoryTest {
     @Test
     public void createNewWorld() throws Exception {
         assertThat(GameOfLifeFactory.createNewWorld(oldWorld)).isEqualToComparingFieldByField(newWorld);
+    }
+
+    @Test
+    public void convertNewWorldToBooleans() throws Exception {
+        assertThat(GameOfLifeFactory.convertNewWorldToListOfBooleans(newWorld)).isEqualTo(newBooleanWorld);
     }
 }

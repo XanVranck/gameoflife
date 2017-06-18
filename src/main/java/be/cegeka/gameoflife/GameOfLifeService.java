@@ -8,12 +8,15 @@ public class GameOfLifeService {
     public List<List<Boolean>> getNewWorld(List<List<Boolean>> oldWorld){
         List<Cell> oldWorldWithCells = GameOfLifeFactory.convertBooleanToCell(oldWorld);
         world = new World(oldWorldWithCells);
-        createNewWorld(world);
-        return null;
+        World newWorld = createNewWorld(world);
+        return convertNewWorldToListOfBooleans(newWorld);
+    }
+
+    private List<List<Boolean>> convertNewWorldToListOfBooleans(World newWorld) {
+        return GameOfLifeFactory.convertNewWorldToListOfBooleans(newWorld);
     }
 
     private World createNewWorld(World world) {
-        GameOfLifeFactory.createNewWorld(world);
-        return null;
+        return GameOfLifeFactory.createNewWorld(world);
     }
 }

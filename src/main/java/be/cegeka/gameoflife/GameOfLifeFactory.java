@@ -29,4 +29,18 @@ public class GameOfLifeFactory {
         }
         return new World(cellList);
     }
+
+    public static List<List<Boolean>> convertNewWorldToListOfBooleans(World newWorld) {
+        List<List<Boolean>> booleanWorld = new ArrayList<>();
+        for (int row = 0; row <= newWorld.getMaxRow().getAsInt(); row++) {
+            List<Boolean> booleanList = new ArrayList<>();
+            for (int col = 0; col <= newWorld.getMaxCol().getAsInt(); col++) {
+                Cell cell = newWorld.getCell(row, col).get();
+                Boolean booleanCell = cell.isAlive();
+                booleanList.add(booleanCell);
+            }
+            booleanWorld.add(booleanList);
+        }
+        return booleanWorld;
+    }
 }

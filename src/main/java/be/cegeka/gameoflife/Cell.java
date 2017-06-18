@@ -32,65 +32,69 @@ public class Cell {
         this.isAlive = isAlive;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Cell cell = (Cell) o;
-
-        if (isAlive != cell.isAlive) return false;
-        if (row != cell.row) return false;
-        return col == cell.col;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (isAlive ? 1 : 0);
-        result = 31 * result + row;
-        result = 31 * result + col;
-        return result;
-    }
-
     public Boolean doesCellLives(World world) {
         List<Cell> grid = world.getGrid();
         int count = 0;
 
         for (Cell cell : grid) {
             if (cellIsInRangeOfRow(cell) && cellIsInRangeOfCol(cell)) {
-                if (checkUpperLeftCorner(cell)) {
-                    count++;
-                }
-                if (checkAboveCell(cell)) {
-                    count++;
-                }
-                if (checkUpperRightCorner(cell)) {
-                    count++;
-                }
-                if (checkLeftOfCell(cell)) {
-                    count++;
-                }
-                if (checkRightOfCell(cell)) {
-                    count++;
-                }
-                if (checkBottomLeftCorner(cell)) {
-                    count++;
-                }
-                if (checkUnderCell(cell)) {
-                    count++;
-                }
-                if (checkBottomRightCorner(cell)) {
-                    count++;
-                }
+                count = countLivingCells(count, cell);
             }
         }
+        return determineIfCellLivesOrDie(count);
+
+    }
+
+    private Boolean determineIfCellLivesOrDie(int count) {
         if (isAlive && (count == 2 || count == 3)) {
             return true;
         } else if (!isAlive && count == 3) {
             return true;
         }
         return false;
+    }
 
+    private int countLivingCells(int count, Cell cell) {
+        count = checkLineAboveCell(count, cell);
+        count = checkSameLineAsCell(count, cell);
+        count = checkLineUnderCell(count, cell);
+        return count;
+    }
+
+    private int checkLineUnderCell(int count, Cell cell) {
+        if (checkBottomLeftCorner(cell)) {
+            count++;
+        }
+        if (checkLineUnderCell(cell)) {
+            count++;
+        }
+        if (checkBottomRightCorner(cell)) {
+            count++;
+        }
+        return count;
+    }
+
+    private int checkSameLineAsCell(int count, Cell cell) {
+        if (checkLeftOfCell(cell)) {
+            count++;
+        }
+        if (checkRightOfCell(cell)) {
+            count++;
+        }
+        return count;
+    }
+
+    private int checkLineAboveCell(int count, Cell cell) {
+        if (checkUpperLeftCorner(cell)) {
+            count++;
+        }
+        if (checkLineAboveCell(cell)) {
+            count++;
+        }
+        if (checkUpperRightCorner(cell)) {
+            count++;
+        }
+        return count;
     }
 
     private boolean cellIsInRangeOfCol(Cell cell) {
@@ -105,7 +109,7 @@ public class Cell {
         return cell.getRow() == row + 1 && cell.getCol() == col + 1 && cell.isAlive();
     }
 
-    private boolean checkUnderCell(Cell cell) {
+    private boolean checkLineUnderCell(Cell cell) {
         return cell.getRow() == row + 1 && cell.getCol() == col && cell.isAlive();
     }
 
@@ -125,11 +129,31 @@ public class Cell {
         return cell.getRow() == row - 1 && cell.getCol() == col + 1 && cell.isAlive();
     }
 
-    private boolean checkAboveCell(Cell cell) {
+    private boolean checkLineAboveCell(Cell cell) {
         return cell.getRow() == row - 1 && cell.getCol() == col && cell.isAlive();
     }
 
     private boolean checkUpperLeftCorner(Cell cell) {
         return cell.getRow() == row - 1 && cell.getCol() == col - 1 && cell.isAlive();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Cell cell = (Cell) o;
+
+        if (isAlive != cell.isAlive) return false;
+        if (row != cell.row) return false;
+        return col == cell.col;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (isAlive ? 1 : 0);
+        result = 31 * result + row;
+        result = 31 * result + col;
+        return result;
     }
 }

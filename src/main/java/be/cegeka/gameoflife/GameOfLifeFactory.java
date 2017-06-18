@@ -43,14 +43,14 @@ public class GameOfLifeFactory {
         for (int row = 0; row <= newWorld.getMaxRow().getAsInt(); row++) {
             List<Boolean> booleanList = new ArrayList<>();
             for (int col = 0; col <= newWorld.getMaxCol().getAsInt(); col++) {
-                convertCellIntoBoolean(newWorld, row, booleanList, col);
+                makeBooleanOutOfCell(newWorld, row, booleanList, col);
             }
             booleanWorld.add(booleanList);
         }
         return booleanWorld;
     }
 
-    private static void convertCellIntoBoolean(World newWorld, int row, List<Boolean> booleanList, int col) {
+    private static void makeBooleanOutOfCell(World newWorld, int row, List<Boolean> booleanList, int col) {
         Cell cell = newWorld.getCell(row, col).get();
         Boolean booleanCell = cell.isAlive();
         booleanList.add(booleanCell);

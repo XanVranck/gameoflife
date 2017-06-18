@@ -22,7 +22,7 @@ public class GameOfLifeController {
     @RequestMapping(value = "/world", method = POST)
     @ResponseBody
     public List<List<Boolean>> getWorld(@RequestBody List<List<Boolean>> currentWorld) throws InterruptedException {
-        TimeUnit.SECONDS.sleep(2);
+        TimeUnit.MILLISECONDS.sleep(5);
         return service.getNewWorld(currentWorld);
     }
 

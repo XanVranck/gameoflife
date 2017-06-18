@@ -40,7 +40,7 @@ public class ConvertBooleanToCellTest {
 
     @Test
     public void convertBooleanToCell() throws Exception {
-        assertThat(ConvertBooleanToCell.convertBooleanToCell(booleanWorld)).isEqualTo(cellWorld);
+        assertThat(GameOfLifeFactory.convertBooleanToCell(booleanWorld)).isEqualTo(cellWorld);
     }
 
 }

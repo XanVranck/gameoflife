@@ -13,4 +13,5 @@ public class World {
     public List<Cell> getGrid() {
         return grid;
     }
+
 }

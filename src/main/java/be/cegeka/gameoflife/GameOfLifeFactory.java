@@ -3,10 +3,7 @@ package be.cegeka.gameoflife;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by xanv on 17/06/2017.
- */
-public class ConvertBooleanToCell {
+public class GameOfLifeFactory {
     public static List<Cell> convertBooleanToCell(List<List<Boolean>> world){
         List<Cell> cellList = new ArrayList<>();
         for (int row = 0; row < world.size(); row++) {
@@ -17,5 +14,12 @@ public class ConvertBooleanToCell {
             }
         }
         return cellList;
+    }
+
+
+    public static void creatNewWorld(World world) {
+        for (Cell cell : world.getGrid()) {
+            cell.doesCellLives(world);
+        }
     }
 }

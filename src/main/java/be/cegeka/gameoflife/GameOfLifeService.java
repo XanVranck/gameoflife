@@ -1,8 +1,19 @@
 package be.cegeka.gameoflife;
 
-/**
- * Created by xanv on 17/06/2017.
- */
-public class GameOfLifeService {
+import java.util.List;
 
+public class GameOfLifeService {
+    private World world;
+
+    public List<List<Boolean>> getNewWorld(List<List<Boolean>> oldWorld){
+        List<Cell> oldWorldWithCells = GameOfLifeFactory.convertBooleanToCell(oldWorld);
+        world = new World(oldWorldWithCells);
+        createNewWorld(world);
+        return null;
+    }
+
+    private World createNewWorld(World world) {
+        GameOfLifeFactory.creatNewWorld(world);
+        return null;
+    }
 }

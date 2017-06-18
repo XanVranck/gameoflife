@@ -17,9 +17,16 @@ public class GameOfLifeFactory {
     }
 
 
-    public static void creatNewWorld(World world) {
+    public static World createNewWorld(World world) {
+        List<Cell> cellList = new ArrayList<>();
         for (Cell cell : world.getGrid()) {
-            cell.doesCellLives(world);
+            if(cell.doesCellLives(world)){
+                Cell newCell = new Cell(true, cell.getRow(), cell.getCol());
+                cellList.add(newCell);
+            }else{
+                cellList.add(new Cell(false, cell.getRow(), cell.getCol()));
+            }
         }
+        return new World(cellList);
     }
 }

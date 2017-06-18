@@ -13,7 +13,7 @@ public class GameOfLifeService {
     }
 
     private World createNewWorld(World world) {
-        GameOfLifeFactory.creatNewWorld(world);
+        GameOfLifeFactory.createNewWorld(world);
         return null;
     }
 }

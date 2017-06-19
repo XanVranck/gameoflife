@@ -1,4 +1,6 @@
-package be.cegeka.gameoflife;
+package be.cegeka.gameoflife.World;
+
+import be.cegeka.gameoflife.cell.Cell;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +22,12 @@ public class World {
         return this.grid.stream().filter(cell -> cell.getRow() == row && cell.getCol() == col).findFirst();
     }
 
+    //TODO: col begint vanaf 0 --> max = 2, terwijl dit 3 moet terug geven
     public OptionalInt getMaxCol(){
         return this.grid.stream().mapToInt(Cell::getCol).max();
     }
 
+    //TODO: col begint vanaf 0 --> max = 2, terwijl dit 3 moet terug geven
     public OptionalInt getMaxRow(){
         return this.grid.stream().mapToInt(Cell::getRow).max();
     }

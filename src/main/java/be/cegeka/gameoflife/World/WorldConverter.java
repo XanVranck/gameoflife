@@ -1,9 +1,11 @@
-package be.cegeka.gameoflife;
+package be.cegeka.gameoflife.World;
+
+import be.cegeka.gameoflife.cell.Cell;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameOfLifeFactory {
+public class WorldConverter {
     public static List<Cell> convertBooleanToCell(List<List<Boolean>> world){
         List<Cell> cellList = new ArrayList<>();
         for (int row = 0; row < world.size(); row++) {
@@ -20,24 +22,6 @@ public class GameOfLifeFactory {
         cellList.add(cell);
     }
 
-
-    public static World createNewWorld(World world) {
-        List<Cell> cellList = new ArrayList<>();
-        for (Cell cell : world.getGrid()) {
-            addCellToNewWorld(world, cellList, cell);
-        }
-        return new World(cellList);
-    }
-
-    private static void addCellToNewWorld(World world, List<Cell> cellList, Cell cell) {
-        if(cell.doesCellLives(world)){
-            Cell newCell = new Cell(true, cell.getRow(), cell.getCol());
-            cellList.add(newCell);
-        }else{
-            cellList.add(new Cell(false, cell.getRow(), cell.getCol()));
-        }
-    }
-
     public static List<List<Boolean>> convertNewWorldToListOfBooleans(World newWorld) {
         List<List<Boolean>> booleanWorld = new ArrayList<>();
         for (int row = 0; row <= newWorld.getMaxRow().getAsInt(); row++) {
@@ -52,7 +36,7 @@ public class GameOfLifeFactory {
 
     private static void makeBooleanOutOfCell(World newWorld, int row, List<Boolean> booleanList, int col) {
         Cell cell = newWorld.getCell(row, col).get();
-        Boolean booleanCell = cell.isAlive();
+        Boolean booleanCell = cell.getIsAlive();
         booleanList.add(booleanCell);
     }
 }

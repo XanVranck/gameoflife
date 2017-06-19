@@ -1,5 +1,8 @@
-package be.cegeka.gameoflife;
+package be.cegeka.gameoflife.world;
 
+import be.cegeka.gameoflife.cell.Cell;
+import be.cegeka.gameoflife.World.World;
+import be.cegeka.gameoflife.World.WorldConverter;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,10 +11,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * Created by xanv on 18/06/2017.
- */
-public class GameOfLifeFactoryTest {
+public class WorldConverterTest {
     private List<Boolean> listOfBooleans1 = new ArrayList<>();
     private List<Boolean> listOfBooleans2 = new ArrayList<>();
     private List<Boolean> listOfBooleans3 = new ArrayList<>();
@@ -100,21 +100,15 @@ public class GameOfLifeFactoryTest {
 
         oldWorld = new World(listOfCells);
         newWorld = new World(newListOfCells);
-
     }
 
     @Test
     public void convertBooleanToCell() throws Exception {
-        assertThat(GameOfLifeFactory.convertBooleanToCell(booleanWorld)).isEqualTo(listOfCells);
-    }
-
-    @Test
-    public void createNewWorld() throws Exception {
-        assertThat(GameOfLifeFactory.createNewWorld(oldWorld)).isEqualToComparingFieldByField(newWorld);
+        assertThat(WorldConverter.convertBooleanToCell(booleanWorld)).isEqualTo(listOfCells);
     }
 
     @Test
     public void convertNewWorldToBooleans() throws Exception {
-        assertThat(GameOfLifeFactory.convertNewWorldToListOfBooleans(newWorld)).isEqualTo(newBooleanWorld);
+        assertThat(WorldConverter.convertNewWorldToListOfBooleans(newWorld)).isEqualTo(newBooleanWorld);
     }
 }

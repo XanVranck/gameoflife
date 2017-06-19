@@ -1,8 +1,10 @@
-package be.cegeka.gameoflife;
+package be.cegeka.gameoflife.World;
+
+import be.cegeka.gameoflife.cell.Cell;
 
 import java.util.List;
 
-public class GameOfLifeService {
+public class WorldService {
 
     public List<List<Boolean>> getNewWorld(List<List<Boolean>> oldWorld){
         World currentWorld = createWorldWithCells(oldWorld);
@@ -11,15 +13,15 @@ public class GameOfLifeService {
     }
 
     private World createWorldWithCells(List<List<Boolean>> oldWorld) {
-        List<Cell> oldWorldWithCells = GameOfLifeFactory.convertBooleanToCell(oldWorld);
+        List<Cell> oldWorldWithCells = WorldConverter.convertBooleanToCell(oldWorld);
         return new World(oldWorldWithCells);
     }
 
     private List<List<Boolean>> convertNewWorldToListOfBooleans(World newWorld) {
-        return GameOfLifeFactory.convertNewWorldToListOfBooleans(newWorld);
+        return WorldConverter.convertNewWorldToListOfBooleans(newWorld);
     }
 
     private World createNewWorld(World currentWorld) {
-        return GameOfLifeFactory.createNewWorld(currentWorld);
+        return WorldFactory.createNewWorld(currentWorld);
     }
 }

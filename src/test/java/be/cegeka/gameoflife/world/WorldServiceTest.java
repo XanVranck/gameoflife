@@ -1,19 +1,26 @@
-package be.cegeka.gameoflife;
+package be.cegeka.gameoflife.world;
 
+import be.cegeka.gameoflife.World.World;
+import be.cegeka.gameoflife.World.WorldService;
+import be.cegeka.gameoflife.cell.Cell;
 import org.junit.Before;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameOfLifeServiceTest {
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class WorldServiceTest {
     private List<List<Boolean>> booleanWorld = new ArrayList<>();
+    private List<List<Boolean>> booleanNewWorld = new ArrayList<>();
     private List<Boolean> bools1OldWorld = new ArrayList<>();
     private List<Boolean> bools1NewWorld = new ArrayList<>();
     private List<Boolean> bools2OldWorld = new ArrayList<>();
     private List<Boolean> bools2NewWorld = new ArrayList<>();
     private List<Cell> cellWorldOld = new ArrayList<>();
     private List<Cell> cellWorldNew = new ArrayList<>();
-    private GameOfLifeService service= new GameOfLifeService();
+    private WorldService service= new WorldService();
     private World newWorld;
 
     @Before
@@ -48,13 +55,16 @@ public class GameOfLifeServiceTest {
         booleanWorld.add(bools1OldWorld);
         booleanWorld.add(bools2OldWorld);
 
+        booleanNewWorld.add(bools1NewWorld);
+        booleanNewWorld.add(bools2NewWorld);
+
         World oldWorld = new World(cellWorldOld);
         newWorld = new World(cellWorldNew);
     }
 
-//    @Test
-//    public void createWorld_ShouldReturn_AllFalse() throws Exception {
-//        Assertions.assertThat(service.getNewWorld(booleanWorld)).isEqualTo(newWorld);
-//
-//    }
+    @Test
+    public void createWorld_ShouldReturn_AllFalse() throws Exception {
+        assertThat(service.getNewWorld(booleanWorld)).isEqualTo(booleanNewWorld);
+
+    }
 }

@@ -1,6 +1,6 @@
 package be.cegeka.gameoflife.controller;
 
-import be.cegeka.gameoflife.GameOfLifeService;
+import be.cegeka.gameoflife.World.WorldService;
 import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +16,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @RequestMapping(value = "/gameoflife")
 public class GameOfLifeController {
 
-    private GameOfLifeService service = new GameOfLifeService();
+    private WorldService service = new WorldService();
     private static Logger logger = Logger.getLogger(GameOfLifeController.class);
 
     @RequestMapping(value = "/world", method = POST)

@@ -1,5 +1,6 @@
-package be.cegeka.gameoflife;
+package be.cegeka.gameoflife.cell;
 
+import be.cegeka.gameoflife.World.World;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -38,7 +39,7 @@ public class CellTest {
 
     @Test
     public void isAlive() throws Exception {
-        assertThat(cellRow0Col0.isAlive()).isEqualTo(false);
+        assertThat(cellRow0Col0.getIsAlive()).isEqualTo(false);
     }
 
     @Test
@@ -54,17 +55,6 @@ public class CellTest {
     @Test
     public void setIsAlive() throws Exception {
         cellRow0Col0.setIsAlive(true);
-        assertThat(cellRow0Col0.isAlive()).isEqualTo(true);
+        assertThat(cellRow0Col0.getIsAlive()).isEqualTo(true);
     }
-
-    @Test
-    public void doesCellLives_dies() throws Exception {
-        assertThat(cellRow1Col0.doesCellLives(world)).isEqualTo(false);
-    }
-
-    @Test
-    public void doesCellLis_ComesTolive() throws Exception {
-        assertThat(cellRow1Col1.doesCellLives(world)).isEqualTo(true);
-    }
-
 }

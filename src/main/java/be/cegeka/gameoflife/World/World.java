@@ -22,12 +22,12 @@ public class World {
         return this.grid.stream().filter(cell -> cell.getRow() == row && cell.getCol() == col).findFirst();
     }
 
-    //TODO: col begint vanaf 0 --> max = 2, terwijl dit 3 moet terug geven
+    //TODO: col begint vanaf 0 --> max is altijd één te weinig, maar no probs in de front end...
     public OptionalInt getMaxCol(){
         return this.grid.stream().mapToInt(Cell::getCol).max();
     }
 
-    //TODO: col begint vanaf 0 --> max = 2, terwijl dit 3 moet terug geven
+    //TODO: row begint vanaf 0 --> max is altijd één te weinig, maar no probs in de front end...
     public OptionalInt getMaxRow(){
         return this.grid.stream().mapToInt(Cell::getRow).max();
     }

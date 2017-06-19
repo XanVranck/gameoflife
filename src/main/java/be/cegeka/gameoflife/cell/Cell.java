@@ -47,4 +47,18 @@ public class Cell {
         result = 31 * result + col;
         return result;
     }
+
+    public boolean IsInRangeOf(Cell originalCell) {
+        return checkRow(originalCell) && checkCol(originalCell) && !this.equals(originalCell);
+    }
+
+    private boolean checkCol(Cell originalCell) {
+        return row == originalCell.getRow() - 1 || row == originalCell.getRow() || row == originalCell.getRow() + 1;
+    }
+
+    private boolean checkRow(Cell originalCell) {
+        return row == originalCell.getCol() - 1 || row == originalCell.getCol() || row == originalCell.getCol() + 1;
+    }
+
+
 }

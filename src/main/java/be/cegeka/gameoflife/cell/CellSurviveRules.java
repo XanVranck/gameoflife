@@ -10,23 +10,11 @@ public class CellSurviveRules {
         List<Cell> neighbours = new ArrayList<>();
 
         for (Cell cell : world.getGrid()) {
-            if (cellIsInRangeOfOriginalCell(originalCell, cell)) {
+            if (cell.IsInRangeOf(originalCell)) {
                 neighbours.add(cell);
             }
         }
         return determineIfCellLives(neighbours, originalCell);
-    }
-
-    private boolean cellIsInRangeOfOriginalCell(Cell originalCell, Cell cell) {
-        return cellIsInRangeOfOriginalCellRow(cell, originalCell) && cellIsInRangeOfOriginalCellCol(cell, originalCell) && !cell.equals(originalCell);
-    }
-
-    private boolean cellIsInRangeOfOriginalCellCol(Cell cell, Cell originalCell) {
-        return cell.getCol() == originalCell.getCol() - 1 || cell.getCol() == originalCell.getCol() || cell.getCol() == originalCell.getCol() + 1;
-    }
-
-    private boolean cellIsInRangeOfOriginalCellRow(Cell cell, Cell originalCell) {
-        return cell.getRow() == originalCell.getRow() - 1 || cell.getRow() == originalCell.getRow() || cell.getRow() == originalCell.getRow() + 1;
     }
 
     private Boolean determineIfCellLives(List<Cell>neighbours, Cell originalCell) {

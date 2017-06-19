@@ -13,12 +13,12 @@ public class WorldService {
     }
 
     private World createWorldWithCells(List<List<Boolean>> oldWorld) {
-        List<Cell> oldWorldWithCells = WorldConverter.convertBooleanToCell(oldWorld);
+        List<Cell> oldWorldWithCells = WorldConverter.convertWorldFromBooleanListToCellList(oldWorld);
         return new World(oldWorldWithCells);
     }
 
     private List<List<Boolean>> convertNewWorldToListOfBooleans(World newWorld) {
-        return WorldConverter.convertNewWorldToListOfBooleans(newWorld);
+        return WorldConverter.convertNewWorldFromCellListToBooleansList(newWorld);
     }
 
     private World createNewWorld(World currentWorld) {

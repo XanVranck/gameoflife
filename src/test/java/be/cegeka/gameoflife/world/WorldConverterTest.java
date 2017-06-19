@@ -104,11 +104,11 @@ public class WorldConverterTest {
 
     @Test
     public void convertBooleanToCell() throws Exception {
-        assertThat(WorldConverter.convertBooleanToCell(booleanWorld)).isEqualTo(listOfCells);
+        assertThat(WorldConverter.convertWorldFromBooleanListToCellList(booleanWorld)).isEqualTo(listOfCells);
     }
 
     @Test
     public void convertNewWorldToBooleans() throws Exception {
-        assertThat(WorldConverter.convertNewWorldToListOfBooleans(newWorld)).isEqualTo(newBooleanWorld);
+        assertThat(WorldConverter.convertNewWorldFromCellListToBooleansList(newWorld)).isEqualTo(newBooleanWorld);
     }
 }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WorldConverter {
-    public static List<Cell> convertBooleanToCell(List<List<Boolean>> world){
+    public static List<Cell> convertWorldFromBooleanListToCellList(List<List<Boolean>> world){
         List<Cell> cellList = new ArrayList<>();
         for (int row = 0; row < world.size(); row++) {
             for (int col = 0; col < world.get(0).size(); col++) {
@@ -22,7 +22,7 @@ public class WorldConverter {
         cellList.add(cell);
     }
 
-    public static List<List<Boolean>> convertNewWorldToListOfBooleans(World newWorld) {
+    public static List<List<Boolean>> convertNewWorldFromCellListToBooleansList(World newWorld) {
         List<List<Boolean>> booleanWorld = new ArrayList<>();
         for (int row = 0; row <= newWorld.getMaxRow().getAsInt(); row++) {
             List<Boolean> booleanList = new ArrayList<>();

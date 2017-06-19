@@ -48,7 +48,17 @@ public class CellSurviveRulesTest {
     }
 
     @Test
-    public void doelCellLive_survives() throws Exception {
+    public void doesCellLive_survives() throws Exception {
         assertThat(cellSurviveRules.doesCellLives(world, cellRow0Col1)).isEqualTo(true);
     }
+
+//    @Test
+//    public void getNumberOfLivingNeighbours_ShouldReturn1() throws Exception {
+//        assertThat(cellSurviveRules.getNumberOfLivingNeighbours(cellRow1Col0, cellRow1Col1)).isEqualTo(1);
+//    }
+//
+//    @Test
+//    public void getNumberOfLivingNeighbours_ShouldReturn0() throws Exception {
+//        assertThat(cellSurviveRules.getNumberOfLivingNeighbours(cellRow1Col1, cellRow1Col0)).isEqualTo(0);
+//    }
 }

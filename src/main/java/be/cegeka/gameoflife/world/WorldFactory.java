@@ -1,4 +1,4 @@
-package be.cegeka.gameoflife.World;
+package be.cegeka.gameoflife.world;
 
 import be.cegeka.gameoflife.cell.Cell;
 import be.cegeka.gameoflife.cell.CellService;

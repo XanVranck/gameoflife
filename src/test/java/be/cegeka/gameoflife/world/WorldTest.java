@@ -1,6 +1,5 @@
 package be.cegeka.gameoflife.world;
 
-import be.cegeka.gameoflife.World.World;
 import be.cegeka.gameoflife.cell.Cell;
 import org.junit.Before;
 import org.junit.Test;

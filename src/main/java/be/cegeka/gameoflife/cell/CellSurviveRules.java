@@ -1,6 +1,6 @@
 package be.cegeka.gameoflife.cell;
 
-import be.cegeka.gameoflife.World.World;
+import be.cegeka.gameoflife.world.World;
 
 import java.util.List;
 

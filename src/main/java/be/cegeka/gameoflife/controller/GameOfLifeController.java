@@ -1,6 +1,6 @@
 package be.cegeka.gameoflife.controller;
 
-import be.cegeka.gameoflife.World.WorldService;
+import be.cegeka.gameoflife.world.WorldService;
 import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

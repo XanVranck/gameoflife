@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CellSurviveRules {
-    public Boolean doesCellLive(World world, Cell originalCell) {
+    public boolean doesCellLive(World world, Cell originalCell) {
         List<Cell> neighbours = new ArrayList<>();
 
         for (Cell cell : world.getGrid()) {
@@ -17,8 +17,10 @@ public class CellSurviveRules {
         return determineIfCellLives(neighbours, originalCell);
     }
 
-    private Boolean determineIfCellLives(List<Cell>neighbours, Cell originalCell) {
-        int amountOfLivingNeighbours = (int) neighbours.stream().filter(Cell::getIsAlive).count();
+    private boolean determineIfCellLives(List<Cell> neighbours, Cell originalCell) {
+        int amountOfLivingNeighbours = (int) neighbours.stream()
+                                                        .filter(Cell::getIsAlive)
+                                                        .count();
 
         return originalCellWasAliveAndHasTwoOrThreeNeighbours(originalCell, amountOfLivingNeighbours)
             || originalCellWasDeadAndHasExactlyThreeNeighbours(originalCell, amountOfLivingNeighbours);

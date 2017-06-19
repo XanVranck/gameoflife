@@ -20,7 +20,7 @@ public class WorldFactory {
     }
 
     private static void addCellToNewWorld(World world, List<Cell> cellList, Cell cell) {
-        if(cellService.doesCellLive(world, cell)){
+        if(cellService.cellLives(world, cell)){
             Cell newCell = new Cell(true, cell.getRow(), cell.getCol());
             cellList.add(newCell);
         }else{

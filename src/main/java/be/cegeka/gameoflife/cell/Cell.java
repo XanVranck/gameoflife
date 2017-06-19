@@ -61,7 +61,7 @@ public class Cell {
     private boolean checkSameLineAs(Cell originalCell) {
         return (row == originalCell.getRow() && col == originalCell.getCol() - 1
             || row == originalCell.getRow() && col == originalCell.getCol() + 1)
-            &&!this.equals(originalCell);
+            && !this.equals(originalCell);
     }
 
     private boolean checkLineAbove(Cell originalCell) {

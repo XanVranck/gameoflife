@@ -20,11 +20,11 @@ public class CellSurviveRules {
     private Boolean determineIfCellLives(List<Cell>neighbours, Cell originalCell) {
         int amountOfLivingNeighbours = (int) neighbours.stream().filter(Cell::getIsAlive).count();
 
-        return originalCellWasAliveAndHasTwoOrThreeNeighbours(originalCell, amountOfLivingNeighbours) ||
-                OriginalCellWasDeadAndHasExactlyThreeNeighbours(originalCell, amountOfLivingNeighbours);
+        return originalCellWasAliveAndHasTwoOrThreeNeighbours(originalCell, amountOfLivingNeighbours)
+            || originalCellWasDeadAndHasExactlyThreeNeighbours(originalCell, amountOfLivingNeighbours);
     }
 
-    private boolean OriginalCellWasDeadAndHasExactlyThreeNeighbours(Cell originalCell, int amountOfLivingNeighbours) {
+    private boolean originalCellWasDeadAndHasExactlyThreeNeighbours(Cell originalCell, int amountOfLivingNeighbours) {
         return !originalCell.getIsAlive() && amountOfLivingNeighbours == 3;
     }
 

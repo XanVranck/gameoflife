@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CellSurviveRules {
-    public Boolean doesCellLives(World world, Cell originalCell) {
+    public Boolean doesCellLive(World world, Cell originalCell) {
         List<Cell> neighbours = new ArrayList<>();
 
         for (Cell cell : world.getGrid()) {
-            if (cell.IsInRangeOf(originalCell)) {
+            if (cell.isInRangeOf(originalCell)) {
                 neighbours.add(cell);
             }
         }

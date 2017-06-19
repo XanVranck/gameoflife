@@ -39,17 +39,17 @@ public class CellSurviveRulesTest {
 
     @Test
     public void doesCellLives_dies() throws Exception {
-        assertThat(cellSurviveRules.doesCellLives(world, cellRow0Col0)).isEqualTo(false);
+        assertThat(cellSurviveRules.doesCellLive(world, cellRow0Col0)).isEqualTo(false);
     }
 
     @Test
     public void doesCellLives_ComesTolive() throws Exception {
-        assertThat(cellSurviveRules.doesCellLives(world, cellRow1Col1)).isEqualTo(true);
+        assertThat(cellSurviveRules.doesCellLive(world, cellRow1Col1)).isEqualTo(true);
     }
 
     @Test
     public void doesCellLive_survives() throws Exception {
-        assertThat(cellSurviveRules.doesCellLives(world, cellRow0Col1)).isEqualTo(true);
+        assertThat(cellSurviveRules.doesCellLive(world, cellRow0Col1)).isEqualTo(true);
     }
 
 //    @Test

@@ -16,16 +16,16 @@ public class Cell {
         return isAlive;
     }
 
+    public void setIsAlive(boolean isAlive) {
+        this.isAlive = isAlive;
+    }
+
     public int getRow() {
         return row;
     }
 
     public int getCol() {
         return col;
-    }
-
-    public void setIsAlive(boolean isAlive) {
-        this.isAlive = isAlive;
     }
 
     @Override
@@ -48,8 +48,26 @@ public class Cell {
         return result;
     }
 
-    public boolean IsInRangeOf(Cell originalCell) {
-        return checkRow(originalCell) && checkCol(originalCell) && !this.equals(originalCell);
+    public boolean isInRangeOf(Cell originalCell) {
+        return checkLineAbove(originalCell) || checkSameLineAs(originalCell) || checkLineUnder(originalCell);
+    }
+
+    private boolean checkLineUnder(Cell originalCell) {
+        return row == originalCell.getRow() + 1 && col == originalCell.getCol() - 1
+            || row == originalCell.getRow() + 1 && col == originalCell.getCol()
+            || row == originalCell.getRow() + 1 && col == originalCell.getCol() + 1;
+    }
+
+    private boolean checkSameLineAs(Cell originalCell) {
+        return (row == originalCell.getRow() && col == originalCell.getCol() - 1
+            || row == originalCell.getRow() && col == originalCell.getCol() + 1)
+            &&!this.equals(originalCell);
+    }
+
+    private boolean checkLineAbove(Cell originalCell) {
+        return row == originalCell.getRow() - 1 && col == originalCell.getCol() - 1
+            || row == originalCell.getRow() - 1 && col == originalCell.getCol()
+            || row == originalCell.getRow() - 1 && col == originalCell.getCol() + 1;
     }
 
     private boolean checkCol(Cell originalCell) {

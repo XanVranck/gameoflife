@@ -1,6 +1,7 @@
 package be.cegeka.gameoflife.world;
 
 import be.cegeka.gameoflife.cell.Cell;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ public class WorldService {
         return convertNewWorldToListOfBooleans(newWorld);
     }
 
+    @NotNull
     private World createWorldWithCells(List<List<Boolean>> oldWorld) {
         List<Cell> oldWorldWithCells = WorldConverter.convertWorldFromBooleanListToCellList(oldWorld);
         return new World(oldWorldWithCells);
@@ -21,6 +23,7 @@ public class WorldService {
         return WorldConverter.convertNewWorldFromCellListToBooleansList(newWorld);
     }
 
+    @NotNull
     private World createNewWorld(World currentWorld) {
         return WorldFactory.createNewWorld(currentWorld);
     }

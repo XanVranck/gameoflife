@@ -1,6 +1,8 @@
-package be.cegeka.gameoflife.world;
+package be.cegeka.gameoflife.controller;
 
 import be.cegeka.gameoflife.cell.Cell;
+import be.cegeka.gameoflife.world.World;
+import be.cegeka.gameoflife.world.WorldService;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,7 +11,10 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class WorldServiceTest {
+/**
+ * Created by xanv on 19/06/2017.
+ */
+public class WorldControllerTest {
     private List<List<Boolean>> booleanWorld = new ArrayList<>();
     private List<List<Boolean>> booleanNewWorld = new ArrayList<>();
     private List<Boolean> bools1OldWorld = new ArrayList<>();
@@ -56,12 +61,12 @@ public class WorldServiceTest {
         booleanNewWorld.add(bools1NewWorld);
         booleanNewWorld.add(bools2NewWorld);
 
-        World oldWorld = new World(cellWorldOld);
         newWorld = new World(cellWorldNew);
     }
 
     @Test
-    public void createWorld_ShouldReturn_AllFalse() throws Exception {
+    public void getWorld() throws Exception {
         assertThat(service.getNewWorld(booleanWorld)).isEqualTo(booleanNewWorld);
     }
+
 }

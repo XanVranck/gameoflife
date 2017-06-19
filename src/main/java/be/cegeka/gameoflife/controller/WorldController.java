@@ -14,10 +14,10 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
 @RequestMapping(value = "/gameoflife")
-public class GameOfLifeController {
+public class WorldController {
 
     private WorldService service = new WorldService();
-    private static Logger logger = Logger.getLogger(GameOfLifeController.class);
+    private static Logger logger = Logger.getLogger(WorldController.class);
 
     @RequestMapping(value = "/world", method = POST)
     @ResponseBody

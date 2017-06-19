@@ -2,6 +2,7 @@ package be.cegeka.gameoflife.world;
 
 import be.cegeka.gameoflife.cell.Cell;
 import be.cegeka.gameoflife.cell.CellService;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 public class WorldFactory {
     private static CellService cellService = new CellService();
 
+    @NotNull
     public static World createNewWorld(World world) {
         List<Cell> cellList = new ArrayList<>();
         for (Cell cell : world.getGrid()) {

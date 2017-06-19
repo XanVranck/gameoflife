@@ -69,14 +69,4 @@ public class Cell {
             || row == originalCell.getRow() - 1 && col == originalCell.getCol()
             || row == originalCell.getRow() - 1 && col == originalCell.getCol() + 1;
     }
-
-    private boolean checkCol(Cell originalCell) {
-        return row == originalCell.getRow() - 1 || row == originalCell.getRow() || row == originalCell.getRow() + 1;
-    }
-
-    private boolean checkRow(Cell originalCell) {
-        return row == originalCell.getCol() - 1 || row == originalCell.getCol() || row == originalCell.getCol() + 1;
-    }
-
-
 }

@@ -11,7 +11,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CellSurviveRulesTest extends GameoflifeApplicationTests {
+public class CellRulesApplierTest extends GameoflifeApplicationTests {
     private Cell cellRow0Col0 = new Cell(false, 0, 0);
     private Cell cellRow0Col1 = new Cell(true, 0, 1);
     private Cell cellRow0Col2 = new Cell(false, 0, 1);
@@ -25,7 +25,7 @@ public class CellSurviveRulesTest extends GameoflifeApplicationTests {
     private World world;
 
     @Autowired
-    private CellSurviveRules cellSurviveRules;
+    private CellRulesApplier cellRulesApplier;
 
     @Before
     public void setUp() throws Exception {
@@ -43,16 +43,16 @@ public class CellSurviveRulesTest extends GameoflifeApplicationTests {
 
     @Test
     public void doesCellLives_dies() throws Exception {
-        assertThat(cellSurviveRules.doesCellLive(world, cellRow0Col0)).isEqualTo(false);
+        assertThat(cellRulesApplier.doesCellLive(world, cellRow0Col0)).isEqualTo(false);
     }
 
     @Test
     public void doesCellLives_ComesTolive() throws Exception {
-        assertThat(cellSurviveRules.doesCellLive(world, cellRow1Col1)).isEqualTo(true);
+        assertThat(cellRulesApplier.doesCellLive(world, cellRow1Col1)).isEqualTo(true);
     }
 
     @Test
     public void doesCellLive_survives() throws Exception {
-        assertThat(cellSurviveRules.doesCellLive(world, cellRow0Col1)).isEqualTo(true);
+        assertThat(cellRulesApplier.doesCellLive(world, cellRow0Col1)).isEqualTo(true);
     }
 }

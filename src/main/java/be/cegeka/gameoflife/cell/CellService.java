@@ -7,9 +7,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class CellService {
     @Autowired
-    private CellSurviveRules cellSurviveRules;
+    private CellRulesApplier cellRulesApplier;
 
     public boolean cellLives(World world, Cell cell){
-        return cellSurviveRules.doesCellLive(world, cell);
+        return cellRulesApplier.doesCellLive(world, cell);
     }
 }

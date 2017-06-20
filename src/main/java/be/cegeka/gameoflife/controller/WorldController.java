@@ -2,6 +2,7 @@ package be.cegeka.gameoflife.controller;
 
 import be.cegeka.gameoflife.world.WorldService;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,7 +17,9 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @RequestMapping(value = "/gameoflife")
 public class WorldController {
 
-    private WorldService service = new WorldService();
+    @Autowired
+    private WorldService service;
+
     private static Logger logger = Logger.getLogger(WorldController.class);
 
     @RequestMapping(value = "/world", method = POST)

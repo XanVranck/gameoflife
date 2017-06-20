@@ -1,20 +1,18 @@
 package be.cegeka.gameoflife.controller;
 
+import be.cegeka.GameoflifeApplicationTests;
 import be.cegeka.gameoflife.cell.Cell;
-import be.cegeka.gameoflife.world.World;
 import be.cegeka.gameoflife.world.WorldService;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * Created by xanv on 19/06/2017.
- */
-public class WorldControllerTest {
+public class WorldControllerTest extends GameoflifeApplicationTests {
     private List<List<Boolean>> booleanWorld = new ArrayList<>();
     private List<List<Boolean>> booleanNewWorld = new ArrayList<>();
     private List<Boolean> bools1OldWorld = new ArrayList<>();
@@ -23,8 +21,9 @@ public class WorldControllerTest {
     private List<Boolean> bools2NewWorld = new ArrayList<>();
     private List<Cell> cellWorldOld = new ArrayList<>();
     private List<Cell> cellWorldNew = new ArrayList<>();
-    private WorldService service= new WorldService();
-    private World newWorld;
+
+    @Autowired
+    private WorldService service;
 
     @Before
     public void setUp() throws Exception {
@@ -61,7 +60,6 @@ public class WorldControllerTest {
         booleanNewWorld.add(bools1NewWorld);
         booleanNewWorld.add(bools2NewWorld);
 
-        newWorld = new World(cellWorldNew);
     }
 
     @Test

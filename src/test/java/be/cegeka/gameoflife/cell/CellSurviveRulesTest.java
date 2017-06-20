@@ -1,15 +1,17 @@
 package be.cegeka.gameoflife.cell;
 
+import be.cegeka.GameoflifeApplicationTests;
 import be.cegeka.gameoflife.world.World;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CellSurviveRulesTest {
+public class CellSurviveRulesTest extends GameoflifeApplicationTests {
     private Cell cellRow0Col0 = new Cell(false, 0, 0);
     private Cell cellRow0Col1 = new Cell(true, 0, 1);
     private Cell cellRow0Col2 = new Cell(false, 0, 1);
@@ -21,7 +23,9 @@ public class CellSurviveRulesTest {
     private Cell cellRow2Col2 = new Cell(false, 2, 2);
     private List<Cell> cellList = new ArrayList<>();
     private World world;
-    private CellSurviveRules cellSurviveRules = new CellSurviveRules();
+
+    @Autowired
+    private CellSurviveRules cellSurviveRules;
 
     @Before
     public void setUp() throws Exception {

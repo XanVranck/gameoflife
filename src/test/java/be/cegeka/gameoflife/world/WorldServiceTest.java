@@ -1,15 +1,17 @@
 package be.cegeka.gameoflife.world;
 
+import be.cegeka.GameoflifeApplicationTests;
 import be.cegeka.gameoflife.cell.Cell;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class WorldServiceTest {
+public class WorldServiceTest extends GameoflifeApplicationTests {
     private List<List<Boolean>> booleanWorld = new ArrayList<>();
     private List<List<Boolean>> booleanNewWorld = new ArrayList<>();
     private List<Boolean> bools1OldWorld = new ArrayList<>();
@@ -18,8 +20,9 @@ public class WorldServiceTest {
     private List<Boolean> bools2NewWorld = new ArrayList<>();
     private List<Cell> cellWorldOld = new ArrayList<>();
     private List<Cell> cellWorldNew = new ArrayList<>();
-    private WorldService service= new WorldService();
-    private World newWorld;
+
+    @Autowired
+    private WorldService service;
 
     @Before
     public void setUp() throws Exception {
@@ -55,9 +58,6 @@ public class WorldServiceTest {
 
         booleanNewWorld.add(bools1NewWorld);
         booleanNewWorld.add(bools2NewWorld);
-
-        World oldWorld = new World(cellWorldOld);
-        newWorld = new World(cellWorldNew);
     }
 
     @Test

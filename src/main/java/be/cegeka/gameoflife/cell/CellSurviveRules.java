@@ -1,10 +1,12 @@
 package be.cegeka.gameoflife.cell;
 
 import be.cegeka.gameoflife.world.World;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class CellSurviveRules {
     public boolean doesCellLive(World world, Cell originalCell) {
         List<Cell> neighbours = new ArrayList<>();

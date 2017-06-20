@@ -1,18 +1,17 @@
 package be.cegeka.gameoflife.world;
 
+import be.cegeka.GameoflifeApplicationTests;
 import be.cegeka.gameoflife.cell.Cell;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * Created by xanv on 18/06/2017.
- */
-public class WorldFactoryTest {
+public class WorldFactoryTest extends GameoflifeApplicationTests {
     private List<Boolean> listOfBooleans1 = new ArrayList<>();
     private List<Boolean> listOfBooleans2 = new ArrayList<>();
     private List<Boolean> listOfBooleans3 = new ArrayList<>();
@@ -28,6 +27,9 @@ public class WorldFactoryTest {
 
     private World oldWorld;
     private World newWorld;
+
+    @Autowired
+    private WorldFactory worldFactory;
 
     @Before
     public void setUp() throws Exception {
@@ -106,6 +108,6 @@ public class WorldFactoryTest {
 
     @Test
     public void createNewWorld() throws Exception {
-        assertThat(WorldFactory.createNewWorld(oldWorld)).isEqualToComparingFieldByField(newWorld);
+        assertThat(worldFactory.createNewWorld(oldWorld)).isEqualToComparingFieldByField(newWorld);
     }
 }

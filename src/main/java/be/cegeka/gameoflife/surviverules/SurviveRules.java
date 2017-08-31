@@ -6,7 +6,7 @@ import be.cegeka.gameoflife.world.World;
 public interface SurviveRules {
     boolean doesCellLive(World world, Cell originalCell);
 
-    boolean originalCellWasDeadAndHasExactlyThreeNeighbours(Cell originalCell, int amountOfNeighbours);
+    boolean comesAlive(Cell originalCell, int amountOfNeighbours);
 
-    boolean originalCellWasAliveAndHasTwoOrThreeNeighbours(Cell originalCell, int amountOfLivingNeighbours);
+    boolean staysAlive(Cell originalCell, int amountOfLivingNeighbours);
 }

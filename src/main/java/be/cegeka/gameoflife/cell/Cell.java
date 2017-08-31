@@ -16,6 +16,10 @@ public class Cell {
         return isAlive;
     }
 
+    public boolean getIsDead(){
+        return !isAlive;
+    }
+
     public void setIsAlive(boolean isAlive) {
         this.isAlive = isAlive;
     }

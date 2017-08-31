@@ -25,15 +25,15 @@ public class CellRulesApplier implements SurviveRules {
                                                         .filter(Cell::getIsAlive)
                                                         .count();
 
-        return originalCellWasAliveAndHasTwoOrThreeNeighbours(originalCell, amountOfLivingNeighbours)
-            || originalCellWasDeadAndHasExactlyThreeNeighbours(originalCell, amountOfLivingNeighbours);
+        return staysAlive(originalCell, amountOfLivingNeighbours)
+            || comesAlive(originalCell, amountOfLivingNeighbours);
     }
 
-    public boolean originalCellWasDeadAndHasExactlyThreeNeighbours(Cell originalCell, int amountOfLivingNeighbours) {
-        return !originalCell.getIsAlive() && amountOfLivingNeighbours == 3;
+    public boolean comesAlive(Cell originalCell, int amountOfLivingNeighbours) {
+        return originalCell.getIsDead() && amountOfLivingNeighbours == 3;
     }
 
-    public boolean originalCellWasAliveAndHasTwoOrThreeNeighbours(Cell originalCell, int amountOfLivingNeighbours) {
+    public boolean staysAlive(Cell originalCell, int amountOfLivingNeighbours) {
         return originalCell.getIsAlive() && (amountOfLivingNeighbours == 2 || amountOfLivingNeighbours == 3);
     }
 }

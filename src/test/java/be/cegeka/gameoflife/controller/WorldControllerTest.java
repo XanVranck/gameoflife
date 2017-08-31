@@ -27,10 +27,10 @@ public class WorldControllerTest extends GameoflifeApplicationTests {
 
     @Before
     public void setUp() throws Exception {
-        Cell cellTrue = new Cell(true, 0, 0);
-        Cell cellFalse = new Cell(false, 0, 1);
-        Cell cellFalse2 = new Cell(false, 1, 0);
-        Cell cellFalse3 = new Cell(false, 1, 1);
+        Cell cellAlive = new Cell(true, 0, 0);
+        Cell cellDead = new Cell(false, 0, 1);
+        Cell cellDead2 = new Cell(false, 1, 0);
+        Cell cellDead3 = new Cell(false, 1, 1);
         Cell cellFalse4 = new Cell(false, 0, 0);
 
         bools1OldWorld.add(true);
@@ -43,14 +43,14 @@ public class WorldControllerTest extends GameoflifeApplicationTests {
         bools2NewWorld.add(false);
         bools2NewWorld.add(false);
 
-        cellWorldOld.add(cellTrue);
-        cellWorldOld.add(cellFalse);
-        cellWorldOld.add(cellFalse2);
-        cellWorldOld.add(cellFalse3);
+        cellWorldOld.add(cellAlive);
+        cellWorldOld.add(cellDead);
+        cellWorldOld.add(cellDead2);
+        cellWorldOld.add(cellDead3);
 
-        cellWorldNew.add(cellFalse);
-        cellWorldNew.add(cellFalse2);
-        cellWorldNew.add(cellFalse3);
+        cellWorldNew.add(cellDead);
+        cellWorldNew.add(cellDead2);
+        cellWorldNew.add(cellDead3);
         cellWorldNew.add(cellFalse4);
 
 
